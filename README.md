@@ -39,11 +39,11 @@ docker run -p 8081:8081 animal-picture-app
 ````
 
 ### API Specification
-**Method:** POST
+**Method:** POST  
 **Endpoint:**  /animals/pictures?animalType=cat&numberOfPictures=X       
 **Purpose:** Saves X amount pictures of cats
 
-**Method:** GET	        
+**Method:** GET       
 **Endpoint:** /animals/pictures/last/cat	                              
 **Purpose:** Retrieves the last saved picture of a cat
 
