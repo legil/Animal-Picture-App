@@ -74,11 +74,11 @@ public class AnimalService {
 
         switch (animalType.toLowerCase()) {
             case "cat":
-                return "https://cataas.com/cat?width=200&rand=" + randomParam;
+                return "https://cataas.com/cat?width=400&rand=" + randomParam;
             case "dog":
-                return "https://placedog.net/300/200?random=" + randomParam;
+                return "https://placedog.net/400/300?random=" + randomParam;
             case "bear":
-                return "https://placebear.com/200/300?" + randomParam;
+                return "https://placebear.com/400/300?" + randomParam;
             default:
                 return null;
         }
