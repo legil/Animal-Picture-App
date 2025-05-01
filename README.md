@@ -45,7 +45,7 @@ docker run -p 8081:8081 animal-picture-app
 
 **Method:** GET       
 **Endpoint:** /animals/pictures/last/cat	                              
-**Purpose:** Retrieves the last saved picture of a cat
+**Purpose:** Retrieves the last saved picture of a cat, dog, or bear
 
 
 
