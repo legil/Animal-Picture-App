@@ -39,16 +39,21 @@ docker run -p 8081:8081 animal-picture-app
 ````
 
 ### API Specification
-## Method	Endpoint	                                              Purpose
-POST	    /animals/pictures?animalType=cat&numberOfPictures=X       Saves X amount pictures of cats
-GET	        /animals/pictures/last/cat	                              Retrieves the last saved picture of a cat
+**Method:** POST
+**Endpoint:**  /animals/pictures?animalType=cat&numberOfPictures=X       
+**Purpose:** Saves X amount pictures of cats
+
+**Method:** GET	        
+**Endpoint:** /animals/pictures/last/cat	                              
+**Purpose:** Retrieves the last saved picture of a cat
 
 
 
 
-### Things left to do on this app
+### Tasks left to do on this app
 - add unit testing
+- persist db across reloads
 - further server error handling
 
 
-This app was built in Eclipse IDE
+This app was built in Eclipse IDE.
