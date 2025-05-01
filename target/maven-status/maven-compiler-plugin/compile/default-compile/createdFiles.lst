@@ -1,0 +1,9 @@
+com\example\animalpictureapp\service\DogApiResponse.class
+com\example\animalpictureapp\AnimalPictureAppMain.class
+com\example\animalpictureapp\controller\AnimalPictureResponse.class
+com\example\animalpictureapp\controller\HomeController.class
+com\example\animalpictureapp\service\CatApiResponse.class
+com\example\animalpictureapp\controller\AnimalController.class
+com\example\animalpictureapp\model\AnimalPicture.class
+com\example\animalpictureapp\repository\AnimalRepository.class
+com\example\animalpictureapp\service\AnimalService.class

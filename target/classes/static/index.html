@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal Picture Fetcher</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        label, select, input, button {
+            margin: 10px 5px;
+        }
+
+        #pictureContainer, #lastPictureContainer {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .animal-image {
+            max-width: 200px;
+            border: 1px solid #ccc;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        h2 {
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Animal Picture Fetcher</h1>
+
+    <label for="animalType">Select Animal Type:</label>
+    <select id="animalType">
+        <option value="cat">Cat</option>
+        <option value="dog">Dog</option>
+        <option value="bear">Bear</option>
+    </select>
+
+    <label for="numPictures">Number of Pictures:</label>
+    <input type="number" id="numPictures" value="1" min="1" max="10">
+
+    <button onclick="fetchPictures()">Fetch Pictures</button>
+
+    <div id="pictureContainer"></div>
+
+    <h2>Last Saved Picture</h2>
+    <button onclick="fetchLastPicture()">View Last Saved Picture of This Animal Type</button>
+    <div id="lastPictureContainer"></div>
+
+    <script>
+        async function fetchPictures() {
+            const animalType = document.getElementById("animalType").value;
+            const numPictures = document.getElementById("numPictures").value;
+
+            const response = await fetch(`/animals/pictures?animalType=${animalType}&numberOfPictures=${numPictures}`, {
+                method: 'POST'
+            });
+
+            const imageUrls = await response.json();
+
+            const container = document.getElementById("pictureContainer");
+            container.innerHTML = ""; // Clear previous images
+
+            imageUrls.forEach(url => {
+                const img = document.createElement("img");
+                img.src = url;
+                img.className = "animal-image";
+                container.appendChild(img);
+            });
+        }
+
+        async function fetchLastPicture() {
+            const animalType = document.getElementById("animalType").value;
+
+            const response = await fetch(`/animals/pictures/last/${animalType}`);
+            const lastPictureUrl = await response.text();
+
+            const container = document.getElementById("lastPictureContainer");
+            container.innerHTML = ""; // Clear previous picture
+
+            const img = document.createElement("img");
+            img.src = lastPictureUrl;
+            img.className = "animal-image";
+            container.appendChild(img);
+        }
+    </script>
+</body>
+</html>
